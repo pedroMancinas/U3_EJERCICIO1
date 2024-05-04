@@ -1,5 +1,5 @@
 //Pedro Mancinas Hernandez
-// Ejercicio 7 realizado
+// Ejercicio 8 realizado
 
 /**********************************************************
  * FileName:        main.c
@@ -34,6 +34,7 @@
 
 void main(void)
 {
+
     /************************************************
               DECLARACION DE VARIABLES
      ************************************************/
@@ -52,14 +53,14 @@ void main(void)
     while(1)
     {
 
-        if ( Gpio_Pin_in(BOTON2) != 1)                // ENTRA AL PRESIONAR EL SWITCH DEL PUERTO P1.4 (CUANDO ESTA EN BAJO)
+        if ( Gpio_Pin_in_2(BOTON3) != 1)                // ENTRA AL PRESIONAR EL SWITCH DEL PUERTO P1.4 (CUANDO ESTA EN BAJO)
                 {
                 GPIO_setPinBajo(PUERTO1, LEDROJO);
                     if(bandera == FALSE)
                         {
                             bandera = TRUE;                                 //BANDERA EN ALTO
                             while (bandera==TRUE){
-                                GPIO_setPinBajo(PUERTO2, LEDROJO);    //APAGA BLUE
+                                GPIO_setPinBajo(PUERTO2, LEDAZUL);    //APAGA BLUE
                                 GPIO_setPinAlto(PUERTO2, LEDROJO);    //ENCIENDE RED
                                 for(i=RETARDO; i>0 ;i--);
                                 GPIO_setPinBajo(PUERTO2, LEDROJO);    //APAGA RED
@@ -68,8 +69,8 @@ void main(void)
                                 GPIO_setPinBajo(PUERTO2, LEDVERDE);    //APAGA GREEN
                                 GPIO_setPinAlto(PUERTO2, LEDAZUL);    //ENCIENDE BLUE
                                 for(i=RETARDO; i>0 ;i--);
-                             if ( Gpio_Pin_in(BOTON2) != 1) bandera=FALSE;    // ENTRA CUANDO PRESIONAMOS BOTON DE P1.4
-                             while( Gpio_Pin_in(BOTON2) != 1);                //MIENTRAS ESTE PRESIONADO EL BOTON
+                             if ( Gpio_Pin_in_2(BOTON3) != 1) bandera=FALSE;    // ENTRA CUANDO PRESIONAMOS BOTON DE P1.4
+                             while( Gpio_Pin_in_2(BOTON3) != 1);                //MIENTRAS ESTE PRESIONADO EL BOTON
                             }
                         }
                  GPIO_setPinBajo(PUERTO2, LEDROJO | LEDVERDE |LEDAZUL);  //APAGA TODOS
