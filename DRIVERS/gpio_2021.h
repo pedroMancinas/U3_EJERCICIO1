@@ -24,6 +24,7 @@
 #define GPIO_2021_H
 
 //#include<stdint.h>
+
 #include "DRIVERS\gpio_config_2021.h"
 
 
@@ -75,6 +76,7 @@ extern uint8_t Gpio_Pin_in( uint_fast16_t pin_);
 
 extern uint8_t Gpio_Pin_in_2( uint_fast16_t pin_); //Ejercicio 8
 
+extern void Gpio_init2021();//ejercicio 9
 
 
 #endif  /* gpio_2021.h*/

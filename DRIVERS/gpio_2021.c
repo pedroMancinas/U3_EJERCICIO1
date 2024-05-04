@@ -21,9 +21,9 @@
  * Los usuarios pueden modificar esto y usarlo para aprender sobre el campo de software embebido.
  * Alfredo Chacon y el TecNM /IT Chihuahua no son responsables del mal uso de este material.
  *************************************************************************************************/
-
 #include "gpio_2021.h"
 #include "BSP.h"
+
 
 /* Declaración del arreglo GPIO_PORT_TO_BASE
  * En el cual se encuentran las direcciones en donde comienzan
@@ -58,17 +58,25 @@ uint8_t Gpio_Pin_in( uint_fast16_t pin_)
         return (0x01);
     return (0x00);
 }
+
+
 //Ejercicio 8
 uint8_t Gpio_Pin_in_2( uint_fast16_t pin_) //ejercicio 8
 {
-uint_fast16_t inputPinValue;
-inputPinValue = PUERTO_P2->IN & (pin_);         // LEE EL REGISTRO QUE INDICA EL VALOR DE ENTRADA DE UN PIN
-if (inputPinValue > 0)                          // RETORNA EL VALOR 1 o 0
-return (0x01);
-return (0x00);
+    uint_fast16_t inputPinValue;
+    inputPinValue = PUERTO_P2->IN & (pin_);         // LEE EL REGISTRO QUE INDICA EL VALOR DE ENTRADA DE UN PIN
+    if (inputPinValue > 0)                          // RETORNA EL VALOR 1 o 0
+    return (0x01);
+    return (0x00);
 }
 
-
+//Ejercicio 9
+void Gpio_init2021()
+{
+    GPIO_setPinEntradaconPullUp(PUERTO1,BOTON2);                //PIN P2.3 COMO ENTRADA
+    GPIO_setPinSalida(PUERTO2, LEDROJO | LEDVERDE | LEDAZUL);   // CONFIGURA PINES 2.0,2.1,2.2  COMO SALIDA (LEDS RGB)"
+    GPIO_setPinBajo(PUERTO2,   LEDROJO | LEDVERDE |LEDAZUL);    // APAGADOS
+}
 
 
  // <-- E8
